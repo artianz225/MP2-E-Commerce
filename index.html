@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <title>MP2 LaShopee</title>
+  </head>
+  <body>
+    <div id="main-container" class="main-container">
+
+      <a href="#main-container"><button class="back-to-top-btn">&#8635;</button></a>
+  
+      <header class="header">
+        <div class="header-links">
+  
+          <div class="social-icons-container">
+            <a href=""><i class="fa-brands fa-facebook"></i> facebook</a>
+            <a href=""><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a href=""><i class="fa-brands fa-tiktok"></i> TikTok</a>
+            <a href=""><i class="fa-brands fa-twitter"></i> Twitter</a>
+          </div>
+          <div class="account-container">
+            <button id="open-modal-btn-signup">Sign Up</button>
+            <span>|</span>
+            <button id="open-modal-btn-login">Login</button>
+          </div>
+  
+        </div>
+  
+        <div class="logo-search-cart-container">
+  
+          <div class="logo-container">
+            <img src="./img/LaShopee-Logo.png" alt="">
+          </div>
+  
+          <div class="search-bar-container">
+              <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            <input type="text" name="" id="search-item" placeholder="Search for items here">
+          </div>
+  
+          <div class="cart-container">
+            <i id="openCartBtn" class="fa-solid fa-cart-shopping"></i>
+            <span class="cart-counter" id="cart-counter">0</span>
+          </div>
+        </div>
+        
+        <div class="shop-items-brands">
+          <a href="#">Apple Smart Phones |</a>
+          <a href="#"> Samsung Smart Phone |</a>
+          <a href="#"> Oppo Smart Phone |</a>
+          <a href="#"> Huwei Smart Phone |</a>
+          <a href="#"> Apple MacBook |</a>
+          <a href="#"> Microsoft Surface |</a>
+          <a href="#"> Samsung Galaxy Book |</a>
+          <a href="#"> Infinix Inbook |</a>
+          <a href="#"> HP Pavilion</a>
+        </div>
+  
+        <div class="ipad-shop-items-brands">
+          <marquee behavior="" direction="" class="ipad-table-marque">
+          <a href="#">Apple Smart Phones |</a>
+          <a href="#"> Samsung Smart Phone |</a>
+          <a href="#"> Oppo Smart Phone |</a>
+          <a href="#"> Huwei Smart Phone |</a>
+          <a href="#"> Apple MacBook |</a>
+          <a href="#"> Microsoft Surface |</a>
+          <a href="#"> Samsung Galaxy Book |</a>
+          <a href="#"> Infinix Inbook |</a>
+          <a href="#"> HP Pavilion</a>
+        </marquee>
+        </div>
+  
+      </header>
+  
+  
+  
+      <div class="items-content-container">
+  
+        <div class="contents">
+          <ul id="shopping-list" class="shopping-list">
+          </ul>
+        </div>
+  
+  
+          <div id="cart-header-container" class="cart-header-container">
+            <h2>Cart</h2>
+             <span id="closeCartBtn" class="mobile-add-to-cart-close-btn">x</span>
+             <div id="cart" class="cart">
+              <div class="dummy">
+  
+              </div>
+             </div>
+  
+          <div class="total-cart-container">
+            <h4>Total</h4>
+            <div class="priceCountainer">
+            <h4>₱</h4>
+            <h4 id="total" class="totalPrice"></h4>
+            </div>
+          </div>
+  
+          <div class="check-out-container">
+            <button class="checkedout">Check out</button>
+          </div>
+        </div>
+  
+      </div>
+  
+      <div class="mobile-navigation-container">
+        <div class="mblProfile">
+          <div id="openProfileBtn"><i class="fa-regular fa-user"></i></div>
+        </div>
+        <div class="mblLaShopeeServices">
+          <div id="aboutLashopee"><i class="fa-regular fa-file-lines"></i></div>
+        </div>
+        <div class="mblSocialLinks">
+          <div id="LashopeeSocialLinks"><i class="fa-solid fa-link"></i></div>
+        </div>
+        <div class="mblLaShopeeHome">
+          <div class="LashopeeHome"><a href="#main-container"><i class="fa-solid fa-house"></i></a></div>
+        </div>
+      </div>
+  
+      
+      <div id="mbl-profile-container" class="mbl-profile-container">
+        <span id="closeProfileBtn"><i class="fa-solid fa-chevron-left"></i></span>
+        <div class="mbl-user">
+          <img class="mbl-profile-image" src="data:image/jpeg;base64,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" alt="">
+          <div class="mbl-user-display-name">
+          <h4>Group 6</h4>
+        </div>
+        <div class="mbl-user-info">
+          <h5>Full Name: Arthur John / Adrian Pual</h5>
+          <h5>Gender: Male</h5>
+          <h5>Birthday: January 01, 2023</h5>
+          <h5>Phone: 09123456789</h5>
+          <h5>Email: forexample@gmail.com</h5>
+          <button>Logout</button>
+        </div>
+        </div>
+      </div>
+  
+      <div id="mbl-lashopee-services" class="mbl-lashopee-services-container">
+        <span id="closeLashopeeBtn"><i class="fa-solid fa-chevron-left"></i></span>
+         <div class="mbl-lashopee-service">
+          <h4 class="serviceTittle">Customer Servicer</h4>
+            <p>Help Centre</p>
+            <p>LaShopee Cares PH</p>
+            <p>Payment Methods</p>
+            <p>LaShopee Coins</p>
+            <p>Order Tracking</p>
+            <p>Free Shipping</p>
+            <p>Return & Refund</p>
+            <p>Shopee Guarantee</p>
+            <p>Overseas Product</p>
+            <p>Contact Us</p>
+          <h4 class="serviceTittle">About LaShopee</h4>
+            <p>About Us</p>
+            <p>LaShopee Blog</p>
+            <p>LaShopee Carrers</p>
+            <p>LaShopee Policies</p>
+            <p>Privacy Policy</p>
+            <p>LaShopee Mall</p>
+            <p>Seller Centre</p>
+            <p>Flash Deals</p>
+            <p>Media Contact</p>
+          <h4 class="serviceTittle">Payment</h4>
+            <p>G-Cash</p>
+            <p>7/11</p>
+            <p>BPI</p>
+        </div>
+      </div>
+  
+      <div id="mbl-social-links" class="mbl-social-links-container">
+        <span id="closeSocialBtn"><i class="fa-solid fa-chevron-left"></i></span>
+        <div class="mbl-social-links">
+        <a href="#"><i class="fa-brands fa-facebook"></i> facebook</a>
+        <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        <a href="#"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+        <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
+      </div>
+      </div>
+  
+      <div class="mbl-dummy"></div>
+  
+      <div class="footer-container">
+  
+        <div class="links-container">
+  
+          <div class="customer-serice">
+            <h4>Customer Servicer</h4>
+            <p>Help Centre</p>
+            <p>LaShopee Cares PH</p>
+            <p>Payment Methods</p>
+            <p>LaShopee Coins</p>
+            <p>Order Tracking</p>
+            <p>Free Shipping</p>
+            <p>Return & Refund</p>
+            <p>Shopee Guarantee</p>
+            <p>Overseas Product</p>
+            <p>Contact Us</p>
+          </div>
+  
+          <div class="about-lashopee">
+            <h4>About LaShopee</h4>
+            <p>About Us</p>
+            <p>LaShopee Blog</p>
+            <p>LaShopee Carrers</p>
+            <p>LaShopee Policies</p>
+            <p>Privacy Policy</p>
+            <p>LaShopee Mall</p>
+            <p>Seller Centre</p>
+            <p>Flash Deals</p>
+            <p>Media Contact</p>
+          </div>
+  
+          <div class="payment">
+          <h4>Payment</h4>
+          <p>G-Cash</p>
+          <p>7/11</p>
+          <p>BPI</p>
+          </div>
+  
+          <div class="follow-us">
+          <h4>Follow us</h4>
+          <a href=""><i class="fa-brands fa-facebook"></i> facebook</a>
+          <a href=""><i class="fa-brands fa-instagram"></i> Instagram</a>
+          <a href=""><i class="fa-brands fa-tiktok"></i> TikTok</a>
+          <a href=""><i class="fa-brands fa-twitter"></i> Twitter</a>
+          </div>
+  
+          <div class="lashopee-app-download">
+           <h4>LaShopee App Download</h4>
+           <img src="https://tse3.mm.bing.net/th?id=OIP.auVBF30qxi1CGnKNvg7p0AHaHa&pid=Api&P=0&h=220" alt="">
+          </div>
+  
+        </div>
+  
+        <div class="all-rights-resrve">
+          <h4>© 2023 LaShopee. All Rights Reserved</h4>
+        </div>
+  
+      </div>
+  
+      <div id="modal-for-signup" class="modal">
+        <form class="modal-container">
+            <h2>Register new account</h2>
+            <input id="name" type="text" placeholder="Name" required>
+            <input id="registerUserName" type="text" placeholder="Username" required>
+            <input id="registerPassword" type="password" placeholder="Password" required>
+            <label>Birthday</label>
+            <div class="birthday-container">
+  
+              <select name="" id="bd-month-select-option">
+                <option id="bd-month-option">Month ---</option>
+                <option id="">January</option>
+                <option id="">February</option>
+                <option id="">March</option>
+                <option id="">April</option>
+                <option id="">may</option>
+                <option id="">June</option>
+                <option id="">July</option>
+                <option id="">August</option>
+                <option id="">September</option>
+                <option id="">October</option>
+                <option id="">November</option>
+                <option id="">December</option>
+              </select>
+              
+              <select name="" id="bd-day-select-option">
+                <option id="bd-day-option">Day ---</option>
+                <option id="">1</option>
+                <option id="">2</option>
+                <option id="">3</option>
+                <option id="">4</option>
+                <option id="">5</option>
+                <option id="">6</option>
+                <option id="">7</option>
+                <option id="">8</option>
+                <option id="">9</option>
+                <option id="">10</option>
+                <option id="">11</option>
+                <option id="">12</option>
+                <option id="">13</option>
+                <option id="">14</option>
+                <option id="">15</option>
+                <option id="">16</option>
+                <option id="">17</option>
+                <option id="">18</option>
+                <option id="">19</option>
+                <option id="">20</option>
+                <option id="">21</option>
+                <option id="">22</option>
+                <option id="">23</option>
+                <option id="">24</option>
+                <option id="">25</option>
+                <option id="">26</option>
+                <option id="">27</option>
+                <option id="">28</option>
+                <option id="">29</option>
+                <option id="">30</option>
+                <option id="">31</option>
+              </select>
+              
+              <select name="" id="bd-year-select-option">
+                <option id="bd-year-option">Year ---</option>
+                <option id="">1990</option>
+                <option id="">1991</option>
+                <option id="">1992</option>
+                <option id="">1903</option>
+                <option id="">1994</option>
+                <option id="">1995</option>
+                <option id="">1996</option>
+                <option id="">1997</option>
+                <option id="">1998</option>
+                <option id="">1999</option>
+                <option id="">2000</option>
+              </select>
+  
+            </div>
+            <div class="btn-container">
+            <button id="register-btn" type="submit">Register</button>
+            <button id="close-register-modal-btn" type="button">Cancel</button>
+            </div>
+        </form>
+    </div>
+  
+    <div id="modal-for-login" class="log-in-modal">
+      <form class="login-modal-container">
+          <h2>Login</h2>
+          <input id="userName" type="text" placeholder="Username" required>
+          <input id="password" type="password" placeholder="Password" required>
+          <div class="login-btn-container">
+          <button id="log-in-btn" type="submit">Login</button>
+          <button id="close-login-modal-btn" type="button">Cancel</button>
+          </div>
+      </form>
+    </div>
+  
+    </div>
+  
+    <div class="errorMsg">
+      <div class="error-msg-container">
+        <img src="img/LaShopee-Logo.png" alt="">
+        <h1>Oops!</h1>
+        <h5>We don't have platform yet for lessthan 320 Mega Pixels yet</h5>
+        <h5>Sorry for inconvenience</h5>
+      </div>
+    </div>
+    <div id="app"></div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
