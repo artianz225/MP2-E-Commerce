@@ -1025,7 +1025,7 @@ option:focus {
   .search-bar-container {
     display: flex;
     height: 35px;
-    width: 260px;
+    width: 80%;
   }
   
   .search-bar-container input {
@@ -1116,7 +1116,7 @@ option:focus {
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 540px;
+    height: 100%;
   }
   
   .shopping-list {
@@ -1822,15 +1822,23 @@ option:focus {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80px;
+    height: 30px;
     border-top: 2px solid gray;
     border-bottom: 2px solid gray;
-    margin-top: 25px;
+    margin-top: 0px;
     background-color: #e8e5e5;
   }
   
   .all-rights-resrve h4 {
+    display: flex;
+    justify-content: center;
     font-weight: 100;
+    width: 100%;
+  }
+
+  .mbl-dummy {
+    display: flex;
+    height: 60px;
   }
   
   .lashopee-app-download img {
@@ -1838,14 +1846,9 @@ option:focus {
     margin-top: 15px;
   }
 
-  @keyframes moveright {
-    from { left: -100%; }
-    to { left: 0; }
-  }
-
-  @keyframes moveleft {
-    from { left: 0; }
-    to { left: -100%; }
+  @keyframes navAnimationtoLeft {
+    from {right: -100%;}
+    to {left: 0px;}
   }
   
   .mbl-profile-container {
@@ -1919,7 +1922,7 @@ option:focus {
     top: 0;
     border-radius: 0px;
     background-color:white;
-    border-right: px solid cadetblue;
+    border-right: 2px solid cadetblue;
     z-index: 999;
     transition: left 0.5s;
   }
@@ -1994,11 +1997,6 @@ option:focus {
   .mbl-social-links a {
     font-size: 14px;
   }
-
-  .mbl-dummy {
-    height: 60px;
-    width: 100%;
-  }
 }
 
 
@@ -2030,7 +2028,7 @@ option:focus {
 
 /* -------------------------------------------------------------------- Ipad / tablet -----------------------------------------------------------*/
 
-@media only screen and (min-width: 551px) and (max-width: 1072px) {
+@media only screen and (min-width: 551px) and (max-width: 1023px) {
   .main-container {
   display: flex;
   flex-direction: column;
@@ -2043,15 +2041,15 @@ option:focus {
 
 .back-to-top-btn {
   position: fixed;
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   right: 20px;
   bottom: 20px;
   border: 2px solid rgb(2, 70, 95);
   border-radius: 50%;
   cursor: pointer;
   color: rgb(2, 70, 95);
-  font-size: 30px;
+  font-size: 15px;
   font-weight: bold;
 }
 
@@ -2062,11 +2060,11 @@ option:focus {
 
 .header-links {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 100%;
   gap: 0em;
   background-color: cadetblue;
-  padding: .3em;
+  padding: .3em 1em;
 }
 
 .social-icons-container {
@@ -2118,6 +2116,7 @@ a:hover {
 .account-container button {
   width: 80px;
   border: none;
+  color: black;
   background-color: cadetblue;
   font-size: 12px;
   letter-spacing: 1px;
@@ -2146,14 +2145,16 @@ a:hover {
 
 .search-bar-container {
   display: flex;
-  height: 30px;
+  height: 35px;
+  width: 60%;
 }
 
 .search-bar-container input {
   font-size: 12px;
   padding: 0 1em;
-  border: 3px solid white;
-  width: 250px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  width: 100%;
   height: 100%;
   letter-spacing: 1px;
 }
@@ -2258,7 +2259,6 @@ a:hover {
   gap: .5em;
   list-style-type: none;
   grid-template-columns: repeat(4, 1fr);
-  overflow: auto;
 }
 
 .total-cart-container {
@@ -2320,7 +2320,7 @@ p {
   margin-top: -7px;
   align-items: center;
   text-align: center;
-  font-size: 25px;
+  font-size: 16px;
   color: rgb(240, 209, 37);
   height: 25px;
 }
@@ -2341,6 +2341,7 @@ p {
   height: 30px;
   border: none;
   cursor: pointer;
+  color: #000;
   background-color: #EE4D2D;
 }
 
@@ -2354,6 +2355,7 @@ p {
   height: 30px;
   border: none;
   cursor: pointer;
+  color: #000;
   background-color: cadetblue;
 }
 
@@ -2402,15 +2404,6 @@ p {
   width: 100%;
 
 }
-
-/*
-.cart-image {
-  width: 100px;
-  height: 50px;
-  margin-left: 1em;
-  box-shadow: 1px 1px 10px #888888;
-}
-*/
 
 .cart-item-added img {
   width: 100px;
@@ -2866,20 +2859,25 @@ option:focus {
   display: none;
 }
 
+.mbl-dummy {
+  display: none;
+}
+
 .footer-container {                 /*------------------------ Footer Main Container ------------------------*/
   border-top: 2px solid gray;
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
+  border: 1px solid red;
 }
 
 .links-container {
-  padding: 5em 1em 2em;
+  padding: 1em 1em;
   display: flex;
-  gap: 1em;
+  gap: 0em;
   height: 100%;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .links-container h4 {
@@ -2888,7 +2886,7 @@ option:focus {
 
 .links-container p {
   border-bottom: 1px solid gray;
-  margin-top: 8px;
+  margin-top: 5px;
   font-size: 10px;
   font-weight: 100;
 }
@@ -2920,7 +2918,7 @@ option:focus {
   height: 40px;
   border-top: 2px solid gray;
   border-bottom: 2px solid gray;
-  margin-top: 25px;
+  margin-top: 0px;
   background-color: #e8e5e5;
 }
 
