@@ -57,17 +57,14 @@ export function renderShopItems(shopItems) {
 
       /* -----------------------------------start------------------------------ */
       addCartBtn.addEventListener('click', cartAdded);
-
-      let sum = 0;
       function cartAdded() {
-
         confirm (`Do you want to add ${shopItem.title} to your cart?`)
         const itemContainer = document.getElementById('cart');
 
         const dummy = itemContainer.querySelectorAll('.dummy');
         const cartItems = itemContainer.querySelectorAll('.added-cart-product-main-container');
         const cartCout = cartItems.length + dummy.length
-        // console.log(cartCout);
+        //console.log(cartCout);
         const itemCountElement = document.getElementById('cart-counter')
         itemCountElement.textContent = cartCout;
 
@@ -180,7 +177,7 @@ export function renderShopItems(shopItems) {
         itemContainer.appendChild(addedCartProductMainContainer);
 
         calculateTotal();
-      }
+    }
 
       /* ------------------------------------End------------------------------- */
 
