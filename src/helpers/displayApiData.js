@@ -1,5 +1,3 @@
-import calculateTotal from "./calculateTotalAddtoCart";
-
 export function renderShopItems(shopItems) {
   const shoppingList = document.getElementById("shopping-list");
 
@@ -120,7 +118,9 @@ export function renderShopItems(shopItems) {
 
           addedpQuantity.textContent = currentQuantity;
           addedpTotalPrice.textContent = totalItemPrice;
-          calculateTotal();
+          addedpTotalPrice.setAttribute("data-price", `${totalItemPrice}`);
+          updateTotalPrice();
+          //calculateTotal();
 
           if(currentQuantity == 0) {
           addedCartProductMainContainer.remove();
@@ -145,27 +145,26 @@ export function renderShopItems(shopItems) {
 
           addedpQuantity.textContent = currentQuantity;
           addedpTotalPrice.textContent = totalItemPrice;
-          calculateTotal();
+          addedpTotalPrice.setAttribute("data-price", `${totalItemPrice}`);
+          updateTotalPrice();
+          //calculateTotal();
         });
 
         const addedpTotalPrice = document.createElement("p");
         addedpTotalPrice.id = "total-item-price"
         addedpTotalPrice.classList.add("total-main-price");
         addedpTotalPrice.textContent = addeditemPrice;
+        addedpTotalPrice.setAttribute("data-price", addedpTotalPrice.textContent);
+        
+        const addeditemCartCheck = document.createElement("input");
+        addeditemCartCheck.type = "checkbox";
+        addeditemCartCheck.classList.add("checked-products");
+
 
         const cartDeleteBtn = document.createElement("i");
         cartDeleteBtn.classList.add("fa-solid");
         cartDeleteBtn.classList.add("fa-trash");
         cartDeleteBtn.style.color = "#EE4D2D";
-
-        cartDeleteBtn.addEventListener('click', deleteCart);
-
-        function deleteCart(){
-          alert("Press OK to delete item from cart");
-          addedCartProductMainContainer.remove();
-          itemCountElement.textContent = parseInt(itemCountElement.textContent) -1;
-          calculateTotal();
-        }
 
         addedCartImageContaier.appendChild(img);
         addedCartpNameContainer.appendChild(addedpName);
@@ -173,10 +172,48 @@ export function renderShopItems(shopItems) {
         
         addedpPriceQuantiryAndDeleteBtn.append(addedpPrice, addedpQuantityContainer, pesoSign, addedpTotalPrice, cartDeleteBtn);
         addedCartpNamePricesAndBtnContainer.append(addedCartpNameContainer, addedpPriceQuantiryAndDeleteBtn);
-        addedCartProductMainContainer.append(addedCartImageContaier, addedCartpNamePricesAndBtnContainer);
+        addedCartProductMainContainer.append(addeditemCartCheck, addedCartImageContaier, addedCartpNamePricesAndBtnContainer);
         itemContainer.appendChild(addedCartProductMainContainer);
+        addeditemCartCheck.querySelector('.checked-products');
+        addeditemCartCheck.addEventListener('change', updateTotalPrice);
 
-        calculateTotal();
+        function updateTotalPrice() {
+          let totalPrice = 0;
+        
+          const addedCartProductMainContainers = document.querySelectorAll('.added-cart-product-main-container');
+        
+          addedCartProductMainContainers.forEach((container) => {
+            const addeditemCartCheck = container.querySelector('.checked-products');
+        
+            if (addeditemCartCheck.checked) {
+              const addedpTotalPrice = container.querySelector('.total-main-price');
+              const price = parseFloat(addedpTotalPrice.getAttribute('data-price'));
+              totalPrice += price;
+              container.style.backgroundColor = "rgba(192, 192, 192, 0.3)";
+              container.style.borderTop = "1px solid cadetblue";
+              container.style.borderBottom = "1px solid cadetblue";
+              container.style.borderRight = "1px solid cadetblue";
+            } else {
+              container.style.backgroundColor = "";
+              container.style.borderTop = "none";
+              container.style.borderBottom = "none";
+              container.style.borderRight = "none";
+            }
+          });
+        
+          document.getElementById('mytotal').textContent = totalPrice.toFixed(2);
+          console.log(totalPrice);
+        }
+
+        cartDeleteBtn.addEventListener('click', deleteCart);
+
+        function deleteCart(){
+          alert("Press OK to delete item from cart");
+          addedCartProductMainContainer.remove();
+          itemCountElement.textContent = parseInt(itemCountElement.textContent) -1;
+          //calculateTotal();
+          updateTotalPrice();
+        }
     }
 
       /* ------------------------------------End------------------------------- */
